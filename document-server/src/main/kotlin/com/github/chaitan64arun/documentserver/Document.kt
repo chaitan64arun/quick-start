@@ -1,7 +1,9 @@
 package com.github.chaitan64arun.documentserver
 
+import org.springframework.boot.context.properties.ConfigurationProperties
 import javax.persistence.*
 
+@ConfigurationProperties(prefix = "file")
 @Entity
 data class Document(
     @Id
@@ -13,14 +15,14 @@ data class Document(
     val userId: Int,
 
     @Column(name = "file_name")
-    val fileName: String,
+    var fileName: String,
 
     @Column(name = "document_type")
     val documentType: String,
 
     @Column(name = "document_format")
-    val documentFormat: String,
+    var documentFormat: String,
 
     @Column(name = "upload_dir")
-    val uploadDir: String
+    var uploadDir: String
 )
